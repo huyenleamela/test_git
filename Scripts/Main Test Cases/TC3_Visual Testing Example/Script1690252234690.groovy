@@ -17,6 +17,8 @@ import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
 
+def comment = org.apache.commons.lang.RandomStringUtils.randomAlphanumeric(500)
+
 WebUI.openBrowser('')
 
 WebUI.navigateToUrl('https://katalon-demo-cura.herokuapp.com/')
@@ -40,9 +42,13 @@ WebUI.click(findTestObject('Page_CURA Healthcare Service/input_Medicaid_programs
 
 WebUI.setText(findTestObject('Page_CURA Healthcare Service/input_Visit Date (Required)_visit_date'), '29/07/2023')
 
-WebUI.setText(findTestObject('Page_CURA Healthcare Service/textarea_Comment_comment'), 'Test demo')
+WebUI.setText(findTestObject('Page_CURA Healthcare Service/textarea_Comment_comment'), comment)
 
 WebUI.click(findTestObject('Page_CURA Healthcare Service/button_Book Appointment'))
+
+WebUI.waitForElementPresent(findTestObject('Page_CURA Healthcare Service/h2_Appointment Confirmation'), 20)
+
+WebUI.verifyElementText(findTestObject('Page_CURA Healthcare Service/p_Test shd'), comment)
 
 WebUI.closeBrowser()
 
