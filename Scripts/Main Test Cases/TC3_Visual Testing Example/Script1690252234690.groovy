@@ -51,7 +51,7 @@ WebUI.waitForElementPresent(findTestObject('Page_CURA Healthcare Service/h2_Appo
 
 WebUI.verifyElementText(findTestObject('Page_CURA Healthcare Service/p_Test shd'), comment)
 
-WebUI.takeAreaScreenshotAsCheckpoint('book appointment', new Rectangle(0, 0, 150, 100))
+WebUI.takeAreaScreenshotAsCheckpoint('book appointment', new Rectangle(0, 0, 929, 887))
 
 WebUI.closeBrowser()
 
