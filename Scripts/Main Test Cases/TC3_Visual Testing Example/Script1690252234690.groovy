@@ -16,6 +16,7 @@ import static com.kms.katalon.core.testcase.TestCaseFactory.findTestCase
 import static com.kms.katalon.core.testdata.TestDataFactory.findTestData
 import static com.kms.katalon.core.testobject.ObjectRepository.findTestObject
 import static com.kms.katalon.core.testobject.ObjectRepository.findWindowsObject
+import org.openqa.selenium.Rectangle as Rectangle
 
 def comment = org.apache.commons.lang.RandomStringUtils.randomAlphanumeric(500)
 
@@ -49,6 +50,8 @@ WebUI.click(findTestObject('Page_CURA Healthcare Service/button_Book Appointment
 WebUI.waitForElementPresent(findTestObject('Page_CURA Healthcare Service/h2_Appointment Confirmation'), 20)
 
 WebUI.verifyElementText(findTestObject('Page_CURA Healthcare Service/p_Test shd'), comment)
+
+WebUI.takeAreaScreenshotAsCheckpoint('book appointment', new Rectangle(50, 25, 150, 100))
 
 WebUI.closeBrowser()
 
